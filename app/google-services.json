@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "7637050290",
+    "firebase_url": "https://qrem-system-2f8ed-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "qrem-system-2f8ed",
+    "storage_bucket": "qrem-system-2f8ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7637050290:android:82874cc8ef33587b643aab",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7637050290-ej5v1h518rqtf1fbchl6mo1dnjdqmii7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "c9000986551118d4f8587fdd0150a41c72b81ffd"
+          }
+        },
+        {
+          "client_id": "7637050290-pj4tcc5563766ejc0pq471seckripi4k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCl6sYduvUb675Plsz_tpZfQhyWHxWXhRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7637050290-pj4tcc5563766ejc0pq471seckripi4k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,42 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">QR-EMS</string>
+
+    <string name="bold" tools:ignore="ReferenceType">@font/lato_bold</string>
+    <string name="light" tools:ignore="ReferenceType">@font/lato_light</string>
+    <string name="regular" tools:ignore="ReferenceType">@font/lato_regular</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="start">Start</string>
+    <string name="close">Close</string>
+
+    <string name="about_college">In 2005,A Vallabh Budhi Polytechnic has been started in the field of Engineering and Technology as per guidelines of (AICTE) All India Council for Technical Education, New Delhi and Gujarat Technological University. The college VBP is located at Narayan P. Patel Education Campus (NPPEC), Bhanunagar, Tal. Jalalpore , Dist. Navsari ,South Gujarat in a peaceful and pollution free environment in richest agro industrial zones of the western region of the country. The college (VBP) is at a distance of about 35 Km. from Surat and 5 Km. from Navsari Railway station.</string>
+    <string name="college_name">Vallabh Budhi Polytechnic, Navsari</string>
+
+    <string-array name="semesters">
+        <item>Select Semester</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <string-array name="Department">
+        <item>Select Department</item>
+        <item>Civil</item>
+        <item>Computer</item>
+        <item>Electrical</item>
+        <item>Mechanical</item>
+    </string-array>
+
+    <string-array name="Event">
+        <item>Select Event</item>
+        <item>Annual Function</item>
+        <item>Independence Day</item>
+        <item>Project Fair</item>
+        <item>Other Events</item>
+    </string-array>
+
+</resources>
