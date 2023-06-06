@@ -47,25 +47,25 @@
             android:textColor="@color/text_color" />
 
         <Button
-            android:id="@+id/btn_admin_login"
+            android:id="@+id/btn_admin_sign"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:text="Admin Login" />
 
         <Button
-            android:id="@+id/btn_student_login"
+            android:id="@+id/btn_volunteer_sign"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@id/btn_admin_login"
-            android:text="Student Login" />
+            android:layout_above="@id/btn_admin_sign"
+            android:text="Volunteer Sign In/Up" />
 
         <Button
-            android:id="@+id/btn_student_reg"
+            android:id="@+id/btn_student_sign"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/btn_student_login"
-            android:text="Student Registration" />
+            android:layout_above="@+id/btn_volunteer_sign"
+            android:text="Student Sign In/Up" />
 
     </RelativeLayout>
 

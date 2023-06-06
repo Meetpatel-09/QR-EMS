@@ -11,13 +11,14 @@ import android.widget.Button;
 import com.example.myapplication.authentication.AdminLoginActivity;
 import com.example.myapplication.authentication.LoginActivity;
 import com.example.myapplication.authentication.RegisterActivity;
+import com.example.myapplication.authentication.VolunteerLoginActivity;
 import com.example.myapplication.students.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 public class FirstActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btnStudetnReg, btnStudentLogin, btnAdminLogin;
+    private Button btnStudentSign, btnVolunteerSign, btnAdminSign;
     private FirebaseAuth auth;
 
     private SharedPreferences sharedPreferences;
@@ -44,13 +45,13 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
 
         auth = FirebaseAuth.getInstance();
 
-        btnStudetnReg = findViewById(R.id.btn_student_reg);
-        btnStudentLogin = findViewById(R.id.btn_student_login);
-        btnAdminLogin = findViewById(R.id.btn_admin_login);
+        btnStudentSign = findViewById(R.id.btn_student_sign);
+        btnVolunteerSign = findViewById(R.id.btn_volunteer_sign);
+        btnAdminSign = findViewById(R.id.btn_admin_sign);
 
-        btnStudetnReg.setOnClickListener(this);
-        btnStudentLogin.setOnClickListener(this);
-        btnAdminLogin.setOnClickListener(this);
+        btnStudentSign.setOnClickListener(this);
+        btnVolunteerSign.setOnClickListener(this);
+        btnAdminSign.setOnClickListener(this);
     }
     private void openHome() {
         startActivity(new Intent(FirstActivity.this, MainActivity.class));
@@ -68,15 +69,15 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_student_reg:
-                startActivity(new Intent(this, RegisterActivity.class));
-                break;
-
-            case R.id.btn_student_login:
+            case R.id.btn_student_sign:
                 startActivity(new Intent(this, LoginActivity.class));
                 break;
 
-            case R.id.btn_admin_login:
+            case R.id.btn_volunteer_sign:
+                startActivity(new Intent(this, VolunteerLoginActivity.class));
+                break;
+
+            case R.id.btn_admin_sign:
                 startActivity(new Intent(this, AdminLoginActivity.class));
                 break;
 

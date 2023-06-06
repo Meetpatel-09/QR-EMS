@@ -54,7 +54,7 @@ public class FacultyAdapter extends RecyclerView.Adapter<FacultyAdapter.FacultyV
         return list.size();
     }
 
-    public class FacultyViewAdapter extends RecyclerView.ViewHolder {
+    public static class FacultyViewAdapter extends RecyclerView.ViewHolder {
 
         private TextView name, email, post;
         private ImageView image;

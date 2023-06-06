@@ -1,6 +1,7 @@
 package com.example.myapplication.students.ui.gallery;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,12 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        holder.imageView.setOnClickListener(v -> {
+            Intent i = new Intent(context, SingleImageActivity.class);
+            i.putExtra("url", list.get(position));
+            context.startActivity(i);
+        });
     }
 
     @Override
@@ -50,7 +57,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
         return list.size();
     }
 
-    public class GalleryViewAdapter extends RecyclerView.ViewHolder {
+    public static class GalleryViewAdapter extends RecyclerView.ViewHolder {
 
         ImageView imageView;
 

@@ -109,7 +109,7 @@ public class Bottom_dialog extends BottomSheetDialogFragment {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         EventData data = dataSnapshot.getValue(EventData.class);
                         assert data != null;
-                        event = data.getEventname();
+//                        event = data.getEventname();
                     }
                     insertData();
                 }

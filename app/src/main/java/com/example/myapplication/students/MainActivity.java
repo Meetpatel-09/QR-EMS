@@ -20,6 +20,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.myapplication.R;
 import com.example.myapplication.students.attendance.ScanActivity;
+import com.example.myapplication.students.ui.ShowQRCodeActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -117,8 +118,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            case R.id.navigation_website:
 //                Toast.makeText(this, "Web-Site", Toast.LENGTH_SHORT).show();
 //                break;
-            case R.id.navigation_scan:
-                startActivity(new Intent(MainActivity.this, ScanActivity.class));
+            case R.id.show_qr_code:
+                startActivity(new Intent(MainActivity.this, ShowQRCodeActivity.class));
                 break;
         }
         return true;

@@ -42,11 +42,8 @@ public class HomeFragment extends Fragment {
 
         imageSlider.setImageList(images, ScaleTypes.CENTER_CROP);
 
-        map.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        map.setOnClickListener(v -> {
                 openMap();
-            }
         });
         return view;
     }

@@ -2,33 +2,33 @@ package com.example.myapplication.admin.event;
 
 public class EventData {
 
-    String eventname, image, date, url, key;
+    String event, fees, date, players, key;
 
     public EventData() {
     }
 
-    public EventData(String eventname, String image, String date, String url, String key) {
-        this.eventname = eventname;
-        this.image = image;
+    public EventData(String event, String fees, String date, String players, String key) {
+        this.event = event;
+        this.fees = fees;
         this.date = date;
-        this.url = url;
+        this.players = players;
         this.key = key;
     }
 
-    public String getEventname() {
-        return eventname;
+    public String getEvent() {
+        return event;
     }
 
-    public void setEventname(String eventname) {
-        this.eventname = eventname;
+    public void setEvent(String event) {
+        this.event = event;
     }
 
-    public String getImage() {
-        return image;
+    public String getFees() {
+        return fees;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setFees(String fees) {
+        this.fees = fees;
     }
 
     public String getDate() {
@@ -39,12 +39,12 @@ public class EventData {
         this.date = date;
     }
 
-    public String getUrl() {
-        return url;
+    public String getPlayers() {
+        return players;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setPlayers(String players) {
+        this.players = players;
     }
 
     public String getKey() {

@@ -11,7 +11,7 @@ import android.widget.Button;
 import com.example.myapplication.R;
 import com.example.myapplication.admin.attendance.ViewAttedanceActivity;
 import com.example.myapplication.admin.ebook.UploadPdf;
-import com.example.myapplication.admin.event.GenerateQRCodeActivity;
+import com.example.myapplication.admin.event.AddEventActivity;
 import com.example.myapplication.admin.faculty.ViewFaculty;
 import com.example.myapplication.admin.notice.DeleteNoticeActivity;
 import com.example.myapplication.admin.notice.UploadNotice;
@@ -72,7 +72,7 @@ public class AdminHomeActivity extends AppCompatActivity implements View.OnClick
                 startActivity(intent);
                 break;
             case R.id.add_event:
-                intent = new Intent(AdminHomeActivity.this, GenerateQRCodeActivity.class);
+                intent = new Intent(AdminHomeActivity.this, AddEventActivity.class);
                 startActivity(intent);
                 break;
             case R.id.add_pdf:

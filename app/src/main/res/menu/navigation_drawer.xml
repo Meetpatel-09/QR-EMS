@@ -36,9 +36,13 @@
 <!--        android:title="Developers"-->
 <!--        android:icon="@drawable/developer"/>-->
 
+<!--    <item-->
+<!--        android:id="@+id/navigation_scan"-->
+<!--        android:title="Fill Attendance"-->
+<!--        android:icon="@drawable/qr_code"/>-->
     <item
-        android:id="@+id/navigation_scan"
-        android:title="Fill Attendance"
+        android:id="@+id/show_qr_code"
+        android:title="Show QR Code"
         android:icon="@drawable/qr_code"/>
 
 </menu>

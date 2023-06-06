@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +14,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QREMS"
         tools:targetApi="33">
+        <activity
+            android:name=".students.ui.ShowQRCodeActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".students.ui.gallery.SingleImageActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".authentication.CompleteProfileActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".authentication.VolunteerLoginActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".admin.AdminHomeActivity"
             android:exported="false">
@@ -49,7 +78,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".admin.event.GenerateQRCodeActivity"
+            android:name=".admin.event.AddEventActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
