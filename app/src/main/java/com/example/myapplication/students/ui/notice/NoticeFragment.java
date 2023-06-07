@@ -56,7 +56,9 @@ public class NoticeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 list = new ArrayList<>();
+
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
                     StudentNoticeData data = dataSnapshot.getValue(StudentNoticeData.class);
                     list.add(0,data);
                 }
