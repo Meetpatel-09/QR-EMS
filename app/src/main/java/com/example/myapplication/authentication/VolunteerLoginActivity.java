@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.myapplication.R;
 import com.example.myapplication.students.MainActivity;
 import com.example.myapplication.students.attendance.StudentData;
+import com.example.myapplication.volunteer.VolunteerHomeActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -34,7 +35,7 @@ public class VolunteerLoginActivity extends AppCompatActivity {
     private EditText email, pwd;
     private Button btnLogin;
 
-    private String sEmail, sPwd, Lemail, isVolunteer = "No";
+    private String sEmail, sPwd, Lemail, isVolunteer;
 
     private FirebaseAuth auth;
 
@@ -118,7 +119,7 @@ public class VolunteerLoginActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     pd.dismiss();
                     if (!Objects.equals(isVolunteer, "No")) {
-                        startActivity(new Intent(VolunteerLoginActivity.this, MainActivity.class));
+                        startActivity(new Intent(VolunteerLoginActivity.this, VolunteerHomeActivity.class));
                     } else {
                         Toast.makeText(VolunteerLoginActivity.this, "Your not a volunteer", Toast.LENGTH_SHORT).show();
                     }

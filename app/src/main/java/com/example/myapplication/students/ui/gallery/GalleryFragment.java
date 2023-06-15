@@ -61,6 +61,7 @@ public class GalleryFragment extends Fragment {
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
 
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    System.out.println(dataSnapshot.getValue());
                     String data = (String) dataSnapshot.getValue();
                     imageList.add(data);
                 }

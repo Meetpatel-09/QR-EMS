@@ -1,4 +1,4 @@
-package com.example.myapplication.admin.faculty;
+package com.example.myapplication.admin.volunteer;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -36,7 +36,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-public class AddFaculty extends AppCompatActivity {
+public class AddVolunteer extends AppCompatActivity {
 
     private ImageView addTeacherImage;
     private EditText addTeacherName, addTeacherEmail, addTeacherPost;
@@ -54,7 +54,7 @@ public class AddFaculty extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_faculty);
+        setContentView(R.layout.activity_add_volunteer);
 
         addTeacherImage = findViewById(R.id.add_teacher_image);
         addTeacherName = findViewById(R.id.add_teacher_name);
@@ -130,7 +130,7 @@ public class AddFaculty extends AppCompatActivity {
         final StorageReference filePath;
         filePath = storageReference.child("Faculties").child(finalImage+"jpg");
         final UploadTask uploadTask = filePath.putBytes(finalImage);
-        uploadTask.addOnCompleteListener(AddFaculty.this, new OnCompleteListener<UploadTask.TaskSnapshot>() {
+        uploadTask.addOnCompleteListener(AddVolunteer.this, new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull @NotNull Task<UploadTask.TaskSnapshot> task) {
                 if (task.isSuccessful()) {
@@ -148,8 +148,8 @@ public class AddFaculty extends AppCompatActivity {
                     });
                 } else {
                     pd.dismiss();
-                    Toast.makeText(AddFaculty.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(AddFaculty.this, AdminHomeActivity.class));
+                    Toast.makeText(AddVolunteer.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(AddVolunteer.this, AdminHomeActivity.class));
                 }
             }
         });
@@ -159,20 +159,20 @@ public class AddFaculty extends AppCompatActivity {
         dbRef = reference.child(category);
         final String uniqueKey = dbRef.push().getKey();
 
-        FacultyData facultyData = new FacultyData(name, email, post, downloadUrl, uniqueKey);
-        dbRef.child(uniqueKey).setValue(facultyData).addOnSuccessListener(new OnSuccessListener<Void>() {
+        VolunteerData volunteerData = new VolunteerData(name, email, post, downloadUrl, uniqueKey);
+        dbRef.child(uniqueKey).setValue(volunteerData).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 pd.dismiss();
-                Toast.makeText(AddFaculty.this, "Faculty Added", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(AddFaculty.this, AdminHomeActivity.class));
+                Toast.makeText(AddVolunteer.this, "Faculty Added", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(AddVolunteer.this, AdminHomeActivity.class));
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull @NotNull Exception e) {
                 pd.dismiss();
-                Toast.makeText(AddFaculty.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(AddFaculty.this, AdminHomeActivity.class));
+                Toast.makeText(AddVolunteer.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(AddVolunteer.this, AdminHomeActivity.class));
             }
         });
     }

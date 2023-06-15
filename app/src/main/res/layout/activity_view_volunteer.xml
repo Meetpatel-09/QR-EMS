@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin.faculty.ViewFaculty">
+    tools:context=".admin.volunteer.ViewVolunteer">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/Widget.Design.FloatingActionButton"
-        android:layout_gravity="bottom|right"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="20dp"
-        android:src="@drawable/ic_add"
-        android:elevation="3dp"
-        app:fabSize="normal"
-        />
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/fab"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        style="@style/Widget.Design.FloatingActionButton"-->
+<!--        android:layout_gravity="bottom|right"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:layout_marginEnd="20dp"-->
+<!--        android:src="@drawable/ic_add"-->
+<!--        android:elevation="3dp"-->
+<!--        app:fabSize="normal"-->
+<!--        />-->
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -93,6 +93,42 @@
 
             <LinearLayout
                 android:id="@+id/cs_no_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/no_data_found"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Electric Engineering"
+                android:gravity="center"
+                android:textSize="22sp"
+                android:textColor="@color/text_color"
+                style="Bold"
+                android:layout_marginTop="16dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#c1c1c1"
+                android:layout_marginVertical="8dp"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/e_department"
+                android:nestedScrollingEnabled="false"
+                android:visibility="gone"
+                />
+
+            <LinearLayout
+                android:id="@+id/e_no_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">

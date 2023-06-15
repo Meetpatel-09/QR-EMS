@@ -1,4 +1,4 @@
-package com.example.myapplication.admin.faculty;
+package com.example.myapplication.admin.volunteer;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -34,7 +34,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class UpdateFaculty extends AppCompatActivity {
+public class UpdateVolunteer extends AppCompatActivity {
 
     private ImageView updateTeacherImage;
     private EditText updateTeacherName, updateTeacherEmail, updateTeacherPost;
@@ -55,7 +55,7 @@ public class UpdateFaculty extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_faculty);
+        setContentView(R.layout.activity_update_volunteer);
 
         name = getIntent().getStringExtra("name");
         email = getIntent().getStringExtra("email");
@@ -147,8 +147,8 @@ public class UpdateFaculty extends AppCompatActivity {
             @Override
             public void onSuccess(Object o) {
                 pd.dismiss();
-                Toast.makeText(UpdateFaculty.this, "Updated successfully", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(UpdateFaculty.this, ViewFaculty.class);
+                Toast.makeText(UpdateVolunteer.this, "Updated successfully", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(UpdateVolunteer.this, ViewVolunteer.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
@@ -156,7 +156,7 @@ public class UpdateFaculty extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull @org.jetbrains.annotations.NotNull Exception e) {
                 pd.dismiss();
-                Toast.makeText(UpdateFaculty.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateVolunteer.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -169,7 +169,7 @@ public class UpdateFaculty extends AppCompatActivity {
         final StorageReference filePath;
         filePath = storageReference.child("Faculties").child(finalImage+"jpg");
         final UploadTask uploadTask = filePath.putBytes(finalImage);
-        uploadTask.addOnCompleteListener(UpdateFaculty.this, new OnCompleteListener<UploadTask.TaskSnapshot>() {
+        uploadTask.addOnCompleteListener(UpdateVolunteer.this, new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull @NotNull Task<UploadTask.TaskSnapshot> task) {
                 if (task.isSuccessful()) {
@@ -187,7 +187,7 @@ public class UpdateFaculty extends AppCompatActivity {
                     });
                 } else {
                     //   pd.dismiss();
-                    Toast.makeText(UpdateFaculty.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateVolunteer.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -200,8 +200,8 @@ public class UpdateFaculty extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<Void> task) {
                 pd.dismiss();
-                Toast.makeText(UpdateFaculty.this, "Deleted successfully", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(UpdateFaculty.this, ViewFaculty.class);
+                Toast.makeText(UpdateVolunteer.this, "Deleted successfully", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(UpdateVolunteer.this, ViewVolunteer.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
@@ -209,7 +209,7 @@ public class UpdateFaculty extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull @org.jetbrains.annotations.NotNull Exception e) {
                 pd.dismiss();
-                Toast.makeText(UpdateFaculty.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateVolunteer.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
             }
         });
     }

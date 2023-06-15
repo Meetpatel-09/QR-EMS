@@ -61,12 +61,9 @@ public class EventFragment extends Fragment {
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 list = new ArrayList<>();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                    System.out.println(dataSnapshot.getValue());
                     EventData data = dataSnapshot.getValue(EventData.class);
                     list.add(0, data);
                 }
-                System.out.println(list.get(0).getEvent());
-                System.out.println(list.get(1).getEvent());
                 adapter = new EventsAdapter(getContext(), list);
                 adapter.notifyDataSetChanged();
                 eventRecyclerview.setAdapter(adapter);

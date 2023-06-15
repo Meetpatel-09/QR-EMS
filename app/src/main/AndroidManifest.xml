@@ -15,6 +15,13 @@
         android:theme="@style/Theme.QREMS"
         tools:targetApi="33">
         <activity
+            android:name=".volunteer.VolunteerHomeActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".students.ui.ShowQRCodeActivity"
             android:exported="false">
             <meta-data
@@ -85,21 +92,21 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".admin.faculty.AddFaculty"
+            android:name=".admin.volunteer.AddVolunteer"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".admin.faculty.ViewFaculty"
+            android:name=".admin.volunteer.ViewVolunteer"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".admin.faculty.UpdateFaculty"
+            android:name=".admin.volunteer.UpdateVolunteer"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

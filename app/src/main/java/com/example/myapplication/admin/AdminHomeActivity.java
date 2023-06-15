@@ -12,7 +12,7 @@ import com.example.myapplication.R;
 import com.example.myapplication.admin.attendance.ViewAttedanceActivity;
 import com.example.myapplication.admin.ebook.UploadPdf;
 import com.example.myapplication.admin.event.AddEventActivity;
-import com.example.myapplication.admin.faculty.ViewFaculty;
+import com.example.myapplication.admin.volunteer.ViewVolunteer;
 import com.example.myapplication.admin.notice.DeleteNoticeActivity;
 import com.example.myapplication.admin.notice.UploadNotice;
 import com.example.myapplication.authentication.AdminLoginActivity;
@@ -46,7 +46,7 @@ public class AdminHomeActivity extends AppCompatActivity implements View.OnClick
         addPdf = findViewById(R.id.add_pdf);
         addFaculty = findViewById(R.id.add_faculty);
         deleteNotice = findViewById(R.id.delete_notice);
-        viewAttendance = findViewById(R.id.view_attendance);
+//        viewAttendance = findViewById(R.id.view_attendance);
         logOut = findViewById(R.id.btn_logout);
 
         uploadNotice.setOnClickListener(this);
@@ -55,7 +55,7 @@ public class AdminHomeActivity extends AppCompatActivity implements View.OnClick
         addPdf.setOnClickListener(this);
         addFaculty.setOnClickListener(this);
         deleteNotice.setOnClickListener(this);
-        viewAttendance.setOnClickListener(this);
+//        viewAttendance.setOnClickListener(this);
         logOut.setOnClickListener(this);
     }
 
@@ -80,17 +80,17 @@ public class AdminHomeActivity extends AppCompatActivity implements View.OnClick
                 startActivity(intent);
                 break;
             case R.id.add_faculty:
-                intent = new Intent(AdminHomeActivity.this, ViewFaculty.class);
+                intent = new Intent(AdminHomeActivity.this, ViewVolunteer.class);
                 startActivity(intent);
                 break;
             case R.id.delete_notice:
                 intent = new Intent(AdminHomeActivity.this, DeleteNoticeActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.view_attendance:
-                intent = new Intent(AdminHomeActivity.this, ViewAttedanceActivity.class);
-                startActivity(intent);
-                break;
+//            case R.id.view_attendance:
+//                intent = new Intent(AdminHomeActivity.this, ViewAttedanceActivity.class);
+//                startActivity(intent);
+//                break;
             case R.id.btn_logout:
                 editor.putString("isLogin", "false");
                 editor.commit();

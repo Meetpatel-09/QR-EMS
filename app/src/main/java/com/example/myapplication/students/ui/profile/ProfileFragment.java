@@ -76,6 +76,14 @@ public class ProfileFragment extends Fragment {
 
         getEvents();
 
+        btnVolunteer.setOnClickListener(v -> {
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+
+            reference.child("Apply").child(profileId).setValue(true);
+            reference.child("students").child(profileId).child("hasApplied").setValue("Yes");
+
+            btnVolunteer.setEnabled(false);
+        });
 
         return view;
     }
@@ -89,10 +97,15 @@ public class ProfileFragment extends Fragment {
 
                 tvName.setText(String.format("Name: %s", data.getName()));
                 tvEnrollment.setText(String.format("Enrollment: %s", data.getEnroll()));
+
+                if (!data.getHasApplied().equals("No")) {
+                    btnVolunteer.setEnabled(false);
+                }
+
                 if (data.getIdPhoto().equals("No")){
                     imgProfile.setImageResource(R.drawable.profile);
                 }else {
-                    Picasso.get().load(data.getIdPhoto()).into(imgProfile);
+                    Picasso.get().load(data.getProfilePhoto()).into(imgProfile);
                 }
             }
 

@@ -33,7 +33,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
             getSupportActionBar().hide();
         }
 
-        FirebaseMessaging.getInstance().subscribeToTopic("all");
+//        FirebaseMessaging.getInstance().subscribeToTopic("all");
 
         sharedPreferences = this.getSharedPreferences("login", MODE_PRIVATE);
         editor = sharedPreferences.edit();

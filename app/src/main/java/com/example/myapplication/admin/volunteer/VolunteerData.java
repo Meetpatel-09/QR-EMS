@@ -1,12 +1,12 @@
-package com.example.myapplication.admin.faculty;
+package com.example.myapplication.admin.volunteer;
 
-public class FacultyData {
+public class VolunteerData {
     private String name, email, post, image, key;
 
-    public FacultyData() {
+    public VolunteerData() {
     }
 
-    public FacultyData(String name, String email, String post, String image, String key) {
+    public VolunteerData(String name, String email, String post, String image, String key) {
         this.name = name;
         this.email = email;
         this.post = post;

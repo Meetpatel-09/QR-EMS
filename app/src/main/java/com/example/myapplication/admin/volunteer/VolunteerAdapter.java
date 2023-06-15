@@ -1,4 +1,4 @@
-package com.example.myapplication.admin.faculty;
+package com.example.myapplication.admin.volunteer;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,19 +14,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 
+import com.example.myapplication.students.attendance.StudentData;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class FacultyAdapter extends RecyclerView.Adapter<FacultyAdapter.FacultyViewAdapter> {
+public class VolunteerAdapter extends RecyclerView.Adapter<VolunteerAdapter.FacultyViewAdapter> {
 
-    private List<FacultyData> list;
+    private List<StudentData> list;
     private Context context;
     private String category;
 
-    public FacultyAdapter(List<FacultyData> list, Context context, String category) {
+    public VolunteerAdapter(List<StudentData> list, Context context, String category) {
         this.list = list;
         this.context = context;
         this.category = category;
@@ -42,12 +43,12 @@ public class FacultyAdapter extends RecyclerView.Adapter<FacultyAdapter.FacultyV
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull FacultyViewAdapter holder, int position) {
-        FacultyData data = list.get(position);
+        StudentData data = list.get(position);
         holder.name.setText(data.getName());
         holder.email.setText(data.getEmail());
-        holder.post.setText(data.getPost());
+        holder.post.setText("Volunteer");
         try {
-            Picasso.get().load(data.getImage()).into(holder.image);
+            Picasso.get().load(data.getProfilePhoto()).into(holder.image);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -55,14 +56,14 @@ public class FacultyAdapter extends RecyclerView.Adapter<FacultyAdapter.FacultyV
         holder.update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, UpdateFaculty.class);
-                intent.putExtra("name", data.getName());
-                intent.putExtra("email", data.getEmail());
-                intent.putExtra("post", data.getPost());
-                intent.putExtra("image", data.getImage());
-                intent.putExtra("key", data.getKey());
-                intent.putExtra("category", category);
-                context.startActivity(intent);
+//                Intent intent = new Intent(context, UpdateVolunteer.class);
+//                intent.putExtra("name", data.getName());
+//                intent.putExtra("email", data.getEmail());
+//                intent.putExtra("post", data.getPost());
+//                intent.putExtra("image", data.getImage());
+//                intent.putExtra("key", data.getKey());
+//                intent.putExtra("category", category);
+//                context.startActivity(intent);
             }
         });
     }
