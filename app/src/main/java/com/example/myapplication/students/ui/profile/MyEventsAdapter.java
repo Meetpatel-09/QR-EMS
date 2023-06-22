@@ -34,7 +34,10 @@ public class MyEventsAdapter extends RecyclerView.Adapter<MyEventsAdapter.MyEven
     @Override
     public void onBindViewHolder(@NonNull MyEventsViewHolder holder, int position) {
 
+
+
         MyEventsModel data = list.get(position);
+        System.out.println(data.event);
         holder.tvEvent.setText(String.format("Event/Game: %s", data.getEvent()));
         holder.tvDate.setText(String.format("Date: %s", data.getDate()));
         holder.tvFees.setText(String.format("Entry Fees: %s", data.getFees()));

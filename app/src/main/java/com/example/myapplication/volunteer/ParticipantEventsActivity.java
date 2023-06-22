@@ -2,6 +2,7 @@ package com.example.myapplication.volunteer;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
@@ -11,7 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
+import com.example.myapplication.admin.event.EventData;
 import com.example.myapplication.students.attendance.StudentData;
+import com.example.myapplication.students.ui.event.EventsAdapter;
 import com.example.myapplication.students.ui.profile.MyEventsAdapter;
 import com.example.myapplication.students.ui.profile.MyEventsModel;
 import com.google.firebase.database.DataSnapshot;
@@ -31,8 +34,8 @@ public class ParticipantEventsActivity extends AppCompatActivity {
     private ImageView imgProfile;
     private RecyclerView participantsEvents;
     private ProgressDialog pd;
-    private ArrayList<MyEventsModel> list;
-    private MyEventsAdapter adapter;
+    private ArrayList<EventData> list;
+    private EventsAdapter adapter;
 
     private String userID;
 
@@ -57,8 +60,15 @@ public class ParticipantEventsActivity extends AppCompatActivity {
         System.out.println(userID);
         System.out.println("userID");
 
+//        reference = FirebaseDatabase.getInstance().getReference().child("Participated").child(userID);
         reference = FirebaseDatabase.getInstance().getReference().child("Participated").child(userID);
+//        reference = FirebaseDatabase.getInstance().getReference().child("Participated").child(userID);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("students");
+
+
+        participantsEvents.setLayoutManager(new LinearLayoutManager(ParticipantEventsActivity.this));
+        participantsEvents.setHasFixedSize(true);
+
 
         pd = new ProgressDialog(ParticipantEventsActivity.this);
 
@@ -94,6 +104,65 @@ public class ParticipantEventsActivity extends AppCompatActivity {
 
     }
 
+//    private void getEvents() {
+//
+//        pd.setMessage("Loading");
+//        pd.show();
+//        reference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+//                list = new ArrayList<>();
+////                System.out.println(snapshot);
+//                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+//                    System.out.println(dataSnapshot);
+//                    MyEventsModel data = dataSnapshot.getValue(MyEventsModel.class);
+//                    list.add(0, data);
+//                }
+////                System.out.println(list);
+//                adapter = new MyEventsAdapter(ParticipantEventsActivity.this, list);
+//                adapter.notifyDataSetChanged();
+//                participantsEvents.setAdapter(adapter);
+//                pd.dismiss();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+//                pd.dismiss();
+//                Toast.makeText(ParticipantEventsActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//    }
+
+//    private void getEvents() {
+//
+//        pd.setMessage("Loading");
+//        pd.show();
+//        reference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+//                list = new ArrayList<>();
+//                System.out.println(snapshot);
+//                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+//                    MyEventsModel data = dataSnapshot.getValue(MyEventsModel.class);
+//                    list.add(0, data);
+//                }
+//                System.out.println(list.size());
+//                adapter = new MyEventsAdapter(ParticipantEventsActivity.this, list);
+//                adapter.notifyDataSetChanged();
+//                participantsEvents.setAdapter(adapter);
+//                pd.dismiss();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+//                pd.dismiss();
+//                Toast.makeText(ParticipantEventsActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//    }
+
     private void getEvents() {
 
         pd.setMessage("Loading");
@@ -102,14 +171,11 @@ public class ParticipantEventsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 list = new ArrayList<>();
-//                System.out.println(snapshot);
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    System.out.println(dataSnapshot);
-                    MyEventsModel data = dataSnapshot.getValue(MyEventsModel.class);
+                    EventData data = dataSnapshot.getValue(EventData.class);
                     list.add(0, data);
                 }
-//                System.out.println(list);
-                adapter = new MyEventsAdapter(ParticipantEventsActivity.this, list);
+                adapter = new EventsAdapter(ParticipantEventsActivity.this, list, "Approve");
                 adapter.notifyDataSetChanged();
                 participantsEvents.setAdapter(adapter);
                 pd.dismiss();

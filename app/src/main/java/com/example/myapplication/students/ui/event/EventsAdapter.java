@@ -17,17 +17,18 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsViewHolder> {
 
     private Context context;
     private ArrayList<EventData> list;
-    private Boolean isVolunteer;
+    private String source;
 
-    public EventsAdapter(Context context, ArrayList<EventData> list, Boolean isVolunteer) {
+    public EventsAdapter(Context context, ArrayList<EventData> list, String source) {
         this.context = context;
         this.list = list;
-        this.isVolunteer = isVolunteer;
+        this.source = source;
     }
 
     @NonNull
@@ -41,10 +42,12 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
     public void onBindViewHolder(@NonNull EventsViewHolder holder, int position) {
         EventData data = list.get(position);
 
-        if (isVolunteer) {
-
+        if (Objects.equals(source, "Approve")) {
+            holder.btnParticipate.setText("Approve");
+        } else if (Objects.equals(source, "Participate")) {
+            holder.btnParticipate.setText("Participate");
         } else {
-
+            holder.btnParticipate.setText("Update");
         }
 
         holder.tvEvent.setText(String.format("Event/Game: %s", data.getEvent()));
@@ -52,12 +55,24 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
         holder.tvFees.setText(String.format("Entry Fees: %s", data.getFees()));
         holder.tvPlayers.setText(String.format("Number of Players: %s", data.getPlayers()));
         holder.btnParticipate.setOnClickListener(v -> {
-            String id =  FirebaseAuth.getInstance().getCurrentUser().getUid();
-            FirebaseDatabase.getInstance().getReference().child("Participants").child(data.getEvent()).child(id).setValue(true);
+            if (Objects.equals(source, "Approve")) {
+//                String id =  FirebaseAuth.getInstance().getCurrentUser().getUid();
+//                FirebaseDatabase.getInstance().getReference().child("Participants").child(data.getEvent()).child(id).setValue(true);
+//
+//                MyEventsModel model = new MyEventsModel(data.getEvent(), "Pending", data.getDate(), data.getPlayers(), data.getKey(), "-");
+//
+//                FirebaseDatabase.getInstance().getReference().child("Participated").child().child(data.getKey()).setValue(model);
 
-            MyEventsModel model = new MyEventsModel(data.getEvent(), "Pending", data.getDate(), data.getPlayers(), data.getKey(), "-");
+            } else if (Objects.equals(source, "Participate")) {
+                String id =  FirebaseAuth.getInstance().getCurrentUser().getUid();
+                FirebaseDatabase.getInstance().getReference().child("Participants").child(data.getEvent()).child(id).setValue(true);
 
-            FirebaseDatabase.getInstance().getReference().child("Participated").child(id).child(data.getKey()).setValue(model);
+                MyEventsModel model = new MyEventsModel(data.getEvent(), "Pending", data.getDate(), data.getPlayers(), data.getKey(), "-");
+
+                FirebaseDatabase.getInstance().getReference().child("Participated").child(id).child(data.getKey()).setValue(model);
+
+            } else {
+            }
         });
     }
 

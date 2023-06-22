@@ -60,7 +60,7 @@ public class ManageEventsActivity extends AppCompatActivity {
                     EventData data = dataSnapshot.getValue(EventData.class);
                     list.add(0, data);
                 }
-                adapter = new EventsAdapter(ManageEventsActivity.this, list, true);
+                adapter = new EventsAdapter(ManageEventsActivity.this, list, "Update");
                 adapter.notifyDataSetChanged();
                 eventRecyclerview.setAdapter(adapter);
                 pd.dismiss();

@@ -64,7 +64,7 @@ public class EventFragment extends Fragment {
                     EventData data = dataSnapshot.getValue(EventData.class);
                     list.add(0, data);
                 }
-                adapter = new EventsAdapter(getContext(), list, false);
+                adapter = new EventsAdapter(getContext(), list, "Participate");
                 adapter.notifyDataSetChanged();
                 eventRecyclerview.setAdapter(adapter);
                 pd.dismiss();
