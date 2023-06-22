@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import com.example.myapplication.R;
 import com.example.myapplication.admin.event.EventData;
 import com.example.myapplication.students.MainActivity;
+import com.example.myapplication.volunteer.ParticipantEventsActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -61,8 +62,8 @@ public class Bottom_dialog extends BottomSheetDialogFragment {
         btn_visit = view.findViewById(R.id.visit);
         close = view.findViewById(R.id.close);
 
-        reference = FirebaseDatabase.getInstance().getReference().child("Attendance");
-        dbRef = FirebaseDatabase.getInstance().getReference().child("Event");
+//        reference = FirebaseDatabase.getInstance().getReference().child("Attendance");
+        dbRef = FirebaseDatabase.getInstance().getReference().child("students");
         fUser = FirebaseAuth.getInstance().getCurrentUser();
 
         if (fUser.getUid() == null) {
@@ -70,7 +71,7 @@ public class Bottom_dialog extends BottomSheetDialogFragment {
         }
         profileId = fUser.getUid();
 
-        userInfo();
+//        userInfo();
 //        title.setText(fetchurl);
         title.setText(profileId);
         title.setText("Scan Successful");
@@ -99,19 +100,23 @@ public class Bottom_dialog extends BottomSheetDialogFragment {
         SimpleDateFormat currentDate = new SimpleDateFormat("dd-MM-yyyy");
         String date = currentDate.format(calForDate.getTime());
 
-        dbRef.child(date).orderByChild("url").equalTo(fetchurl).addValueEventListener(new ValueEventListener() {
+        dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 if (!snapshot.exists()) {
-
                     Toast.makeText(getContext(), "Invalid QR code", Toast.LENGTH_SHORT).show();
                 } else {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        EventData data = dataSnapshot.getValue(EventData.class);
+//                        EventData data = dataSnapshot.getValue(EventData.class);
+                        StudentData data = dataSnapshot.getValue(StudentData.class);
                         assert data != null;
+                        Intent i = new Intent(getContext(), ParticipantEventsActivity.class);
+                        i.putExtra("sId", data.getKey());
+                        startActivity(i);
 //                        event = data.getEventname();
+
                     }
-                    insertData();
+//                    insertData();
                 }
             }
 

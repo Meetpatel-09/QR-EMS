@@ -14,8 +14,6 @@ import com.example.myapplication.R;
 import com.example.myapplication.admin.event.EventData;
 import com.example.myapplication.students.ui.profile.MyEventsModel;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
@@ -24,10 +22,12 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
 
     private Context context;
     private ArrayList<EventData> list;
+    private Boolean isVolunteer;
 
-    public EventsAdapter(Context context, ArrayList<EventData> list) {
+    public EventsAdapter(Context context, ArrayList<EventData> list, Boolean isVolunteer) {
         this.context = context;
         this.list = list;
+        this.isVolunteer = isVolunteer;
     }
 
     @NonNull
@@ -40,6 +40,12 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
     @Override
     public void onBindViewHolder(@NonNull EventsViewHolder holder, int position) {
         EventData data = list.get(position);
+
+        if (isVolunteer) {
+
+        } else {
+
+        }
 
         holder.tvEvent.setText(String.format("Event/Game: %s", data.getEvent()));
         holder.tvDate.setText(String.format("Date: %s", data.getDate()));

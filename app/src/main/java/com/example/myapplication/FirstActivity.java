@@ -58,13 +58,13 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         finish();
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (auth.getCurrentUser() != null) {
-            openHome();
-        }
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        if (auth.getCurrentUser() != null) {
+//            openHome();
+//        }
+//    }
 
     @Override
     public void onClick(View v) {

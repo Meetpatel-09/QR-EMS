@@ -15,6 +15,27 @@
         android:theme="@style/Theme.QREMS"
         tools:targetApi="33">
         <activity
+            android:name=".volunteer.ParticipantEventsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".volunteer.ManageParticipantsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".volunteer.ManageEventsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".volunteer.VolunteerHomeActivity"
             android:exported="false">
             <meta-data

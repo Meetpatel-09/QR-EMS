@@ -48,6 +48,6 @@
         android:textSize="14sp"
         android:textColor="@color/colorAccent"
         android:textStyle="bold"
-        android:text="Click here to fill attendance" />
+        android:text="Click here to view Profile" />
 
 </LinearLayout>

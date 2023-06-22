@@ -1,20 +1,17 @@
-package com.example.myapplication.students.ui.event;
-
-import android.app.ProgressDialog;
-import android.os.Bundle;
+package com.example.myapplication.volunteer;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.app.ProgressDialog;
+import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.example.myapplication.admin.event.EventData;
+import com.example.myapplication.students.ui.event.EventsAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,7 +22,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class EventFragment extends Fragment {
+public class ManageEventsActivity extends AppCompatActivity {
 
     private RecyclerView eventRecyclerview;
     private ProgressDialog pd;
@@ -33,23 +30,22 @@ public class EventFragment extends Fragment {
     private EventsAdapter adapter;
 
     private DatabaseReference reference;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_manage_events);
 
-        View view = inflater.inflate(R.layout.fragment_event, container, false);
-
-        eventRecyclerview = view.findViewById(R.id.events);
+        eventRecyclerview = findViewById(R.id.manage_events_1);
         reference = FirebaseDatabase.getInstance().getReference().child("Events");
 
-        pd = new ProgressDialog(getContext());
+        pd = new ProgressDialog(this);
 
-        eventRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+        eventRecyclerview.setLayoutManager(new LinearLayoutManager(this));
         eventRecyclerview.setHasFixedSize(true);
 
         getEvents();
 
-        return view;
     }
 
     private void getEvents() {
@@ -64,7 +60,7 @@ public class EventFragment extends Fragment {
                     EventData data = dataSnapshot.getValue(EventData.class);
                     list.add(0, data);
                 }
-                adapter = new EventsAdapter(getContext(), list, false);
+                adapter = new EventsAdapter(ManageEventsActivity.this, list, true);
                 adapter.notifyDataSetChanged();
                 eventRecyclerview.setAdapter(adapter);
                 pd.dismiss();
@@ -73,9 +69,10 @@ public class EventFragment extends Fragment {
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
                 pd.dismiss();
-                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ManageEventsActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
     }
+
 }

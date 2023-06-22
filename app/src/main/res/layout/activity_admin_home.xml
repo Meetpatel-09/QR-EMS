@@ -280,6 +280,7 @@
             android:layout_height="100dp"
             android:layout_marginHorizontal="20dp"
             android:layout_marginVertical="10dp"
+            android:visibility="gone"
             app:cardElevation="5dp">
 
             <LinearLayout
